@@ -1,0 +1,27 @@
+{
+  "name": "teamprofilegeneratoroop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellessed/TeamProfileGeneratorOOP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ellessed/TeamProfileGeneratorOOP/issues"
+  },
+  "homepage": "https://github.com/ellessed/TeamProfileGeneratorOOP#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.4",
+    "jest": "^29.3.1"
+  }
+}
