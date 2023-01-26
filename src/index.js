@@ -34,8 +34,31 @@ const questions = [
 const managerQuestions = [
   {
     type: "input",
-    message: "Pleasetype in an office number",
+    message: "Please type in an office number",
     name: "officeNumber",
+  },
+];
+// Intern Questions
+const InternQues = [
+  {
+    type: "input",
+    message: "What is the Employee's Name?",
+    name: "name",
+  },
+  {
+    type: "input",
+    message: "Please provide the Employee's ID number",
+    name: "id",
+  },
+  {
+    type: "input",
+    message: "Please provide the Employee's email address",
+    name: "email",
+  },
+  {
+    type: "input",
+    message: "Please provide the Intern's School name",
+    name: "school",
   },
 ];
 
@@ -70,9 +93,7 @@ const init = async () => {
 
 init();
 
-// get the questions for the intern and engineer done
-
-// ask them in case the users choose for that specific category
+// get the questions for the intern and engineer done. ask either of these questions when the user chooses the corresponding category
 
 // get tests done for all 4 classes
 
