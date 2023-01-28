@@ -30,8 +30,24 @@ const questions = [
     choices: ["Manager", "Engineer", "Intern"],
   },
 ];
+// manager questions
 
 const managerQuestions = [
+  {
+    type: "input",
+    message: "What is your name?",
+    name: "name",
+  },
+  {
+    type: "input",
+    message: "What is your Employee id?",
+    name: "id",
+  },
+  {
+    type: "input",
+    message: "What is your email address?",
+    name: "email",
+  },
   {
     type: "input",
     message: "Please type in an office number",
@@ -61,6 +77,8 @@ const InternQues = [
     name: "school",
   },
 ];
+
+// Engineer Questions
 
 const init = async () => {
   try {
