@@ -30,6 +30,7 @@ const questions = [
     choices: ["Manager", "Engineer", "Intern"],
   },
 ];
+
 // manager questions
 
 const managerQuestions = [
@@ -50,7 +51,7 @@ const managerQuestions = [
   },
   {
     type: "input",
-    message: "Please type in an office number",
+    message: "Please enter your office number?",
     name: "officeNumber",
   },
 ];
@@ -58,27 +59,50 @@ const managerQuestions = [
 const InternQues = [
   {
     type: "input",
-    message: "What is the Employee's Name?",
+    message: "What is your name?",
     name: "name",
   },
   {
     type: "input",
-    message: "Please provide the Employee's ID number",
+    message: "What is your id number?",
     name: "id",
   },
   {
     type: "input",
-    message: "Please provide the Employee's email address",
+    message: "What is your email address?",
     name: "email",
   },
   {
     type: "input",
-    message: "Please provide the Intern's School name",
+    message: "What is your School name?",
     name: "school",
   },
 ];
 
 // Engineer Questions
+
+const EngineerQues = [
+  {
+    type: "input",
+    message: "What is your name?",
+    name: "name",
+  },
+  {
+    type: "input",
+    message: "What is your id number?",
+    name: "id",
+  },
+  {
+    type: "input",
+    message: "What is your email address?",
+    name: "email",
+  },
+  {
+    type: "input",
+    message: "What is your GitHub username?",
+    name: "GitHub",
+  },
+];
 
 const init = async () => {
   try {
