@@ -1,4 +1,10 @@
 const inquirer = require("inquirer");
+const Manager = require("../src/lib/Manager");
+const Engineer = require("../src/lib/Engineer");
+const Intern = require("../src/lib/Intern");
+const generateHtmlFile = require("./utils/generateHTML");
+
+let employeesArray = [];
 
 const questions = [
   {
@@ -31,47 +37,23 @@ const questions = [
   },
 ];
 
-// manager questions
-
 const managerQuestions = [
-  {
-    type: "input",
-    message: "What is your name?",
-    name: "name",
-  },
-  {
-    type: "input",
-    message: "What is your Employee id?",
-    name: "id",
-  },
-  {
-    type: "input",
-    message: "What is your email address?",
-    name: "email",
-  },
   {
     type: "input",
     message: "Please enter your office number?",
     name: "officeNumber",
   },
 ];
-// Intern Questions
-const InternQues = [
+
+const engineerQues = [
   {
     type: "input",
-    message: "What is your name?",
-    name: "name",
+    message: "What is your GitHub username?",
+    name: "gitHub",
   },
-  {
-    type: "input",
-    message: "What is your id number?",
-    name: "id",
-  },
-  {
-    type: "input",
-    message: "What is your email address?",
-    name: "email",
-  },
+];
+
+const internQues = [
   {
     type: "input",
     message: "What is your School name?",
@@ -79,54 +61,72 @@ const InternQues = [
   },
 ];
 
-// Engineer Questions
-
-const EngineerQues = [
-  {
-    type: "input",
-    message: "What is your name?",
-    name: "name",
-  },
-  {
-    type: "input",
-    message: "What is your id number?",
-    name: "id",
-  },
-  {
-    type: "input",
-    message: "What is your email address?",
-    name: "email",
-  },
-  {
-    type: "input",
-    message: "What is your GitHub username?",
-    name: "GitHub",
-  },
-];
-
 const init = async () => {
   try {
     const answers = await inquirer.prompt(questions);
-    console.log(answers);
+    // destructure answers
+    const { employeeName, employeeId, employeeEmail, employeeRole } = answers;
 
-    switch (answers.employeeRole) {
+    switch (employeeRole) {
       case "Manager":
         const managerAnswers = await inquirer.prompt(managerQuestions);
 
-        const myManagerCard = `<div>${managerAnswers.officeNumber}</div>`;
-        console.log(myManagerCard);
+        const manager = new Manager(
+          employeeName,
+          employeeId,
+          employeeEmail,
+          employeeRole,
+          managerAnswers.officeNumber
+        );
+        console.log(manager);
+
+        employeesArray.push(manager);
+
         break;
 
       case "Engineer":
-        console.log("Youve typed a engineer");
+        const engineerAnswers = await inquirer.prompt(engineerQues);
+        const engineer = new Engineer(
+          employeeName,
+          employeeId,
+          employeeEmail,
+          employeeRole,
+          engineerAnswers.gitHub
+        );
+        console.log(engineer);
+
+        employeesArray.push(engineer);
         break;
 
       case "Intern":
-        console.log("Youve chosen an intern");
+        const internAnswers = await inquirer.prompt(internQues);
+        const intern = new Intern(
+          employeeName,
+          employeeId,
+          employeeEmail,
+          employeeRole,
+          internAnswers.school
+        );
+        console.log(intern);
+
+        employeesArray.push(intern);
         break;
 
       default:
         console.log("Default");
+    }
+
+    const rerun = await inquirer.prompt({
+      type: "list",
+      message: "Do you want to add another Employee?",
+      name: "addAnotherEmployee",
+      choices: ["Yes", "No"],
+    });
+
+    if (rerun.addAnotherEmployee === "Yes") {
+      init();
+    } else if (rerun.addAnotherEmployee === "No") {
+      generateHtmlFile();
     }
   } catch (error) {
     console.log(error.message);
