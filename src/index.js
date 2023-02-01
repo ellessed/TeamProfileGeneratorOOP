@@ -78,7 +78,6 @@ const init = async () => {
           employeeRole,
           managerAnswers.officeNumber
         );
-        console.log(manager);
 
         employeesArray.push(manager);
 
@@ -93,7 +92,6 @@ const init = async () => {
           employeeRole,
           engineerAnswers.gitHub
         );
-        console.log(engineer);
 
         employeesArray.push(engineer);
         break;
@@ -107,13 +105,11 @@ const init = async () => {
           employeeRole,
           internAnswers.school
         );
-        console.log(intern);
 
         employeesArray.push(intern);
         break;
 
       default:
-        console.log("Default");
     }
 
     const rerun = await inquirer.prompt({
@@ -126,7 +122,7 @@ const init = async () => {
     if (rerun.addAnotherEmployee === "Yes") {
       init();
     } else if (rerun.addAnotherEmployee === "No") {
-      generateHtmlFile();
+      generateHtmlFile(employeesArray);
     }
   } catch (error) {
     console.log(error.message);
