@@ -27,6 +27,6 @@ describe("Engineer", () => {
   });
 
   it("Contains a role", () => {
-    expect(testEngineer.role).toMatch("em");
+    expect(testEngineer.role).toMatch("engineer");
   });
 });
