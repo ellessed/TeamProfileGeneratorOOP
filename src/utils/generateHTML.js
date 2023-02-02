@@ -13,7 +13,14 @@ const generateHtmlFile = (employeesArr) => {
         specialDiv = `<div class="card-text">Office Number: <span> ${employee.officeNumber} </span></div>`;
         break;
       case "Engineer":
-        specialDiv = `<div class="card-text">GitHub: <span> ${employee.gitHub} </span></div>`;
+        specialDiv = `<div class="card-text">GitHub: <a
+        href="https://github.com/${employee.gitHub}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ${employee.gitHub}
+      </a></div>`;
+
         break;
       case "Intern":
         specialDiv = `<div class="card-text">School: <span> ${employee.school} </span></div>`;
@@ -29,7 +36,7 @@ const generateHtmlFile = (employeesArr) => {
 
       <div class="card-text">Name: <span> ${employee.name} </span></div>
       <div class="card-text">Id: <span> ${employee.id} </span></div>
-      <div class="card-text">Email: <span> ${employee.email} </span></div>
+      <div class="card-text">Email: <a href="mailto:${employee.email}">${employee.email}</a></div>
       ${specialDiv}
     </div>
   </div>`;
